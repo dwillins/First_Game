@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Window extends Canvas{
-    public Window(int width, int height, String title, Game game) {
+    public Window(int width, int height, String title, Game game, Handler handler) {
         JFrame frame = new JFrame(title);
 
         Dimension size = new Dimension(width, height);
@@ -18,6 +18,7 @@ public class Window extends Canvas{
         frame.setLocationRelativeTo(null);
         frame.add(game);
         frame.setVisible(true);
+        frame.addKeyListener(new KeyInput(handler));
         game.start();
     }
 }

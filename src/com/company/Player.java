@@ -6,17 +6,31 @@ public class Player extends GameObject {
 
     public Player(int x, int y, ID id) {
         super(x, y, id);
+//        velX = 3;
+//        velY = 3;
+    }
 
-        velX = 1;
+    public void control(int key) {
+        if (key == 87) {
+            velY = -3;
+        } else if (key == 83) {
+            velY = 3;
+        }
+        if (key == 65) {
+            velX = -3;
+        } else if (key == 68) {
+            velX = 3;
+        }
     }
 
     @Override
     public void tick() {
-//        if (x > 800) {
-//            velX = -1;
-//        } else if (x < 100){
-//            velX = 1;
-//        }
+        if (x > 785 || x < 0) {
+            velX *= -1;
+        }
+        if (y > 535 || y < 0) {
+            velY *= -1;
+        }
         x += velX;
         y += velY;
     }
