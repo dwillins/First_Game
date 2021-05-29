@@ -1,5 +1,5 @@
 package com.company;
 
 public enum ID {
-    Player(), Enemy();
+    Player1(), Player2(), aiPlayer(), Ball();
 }

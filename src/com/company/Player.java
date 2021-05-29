@@ -10,7 +10,7 @@ public class Player extends GameObject {
 //        velY = 3;
     }
 
-    public void control(int key) {
+    public void move(int key) {
         if (key == 87) {
             velY = -3;
         } else if (key == 83) {
@@ -20,6 +20,15 @@ public class Player extends GameObject {
             velX = -3;
         } else if (key == 68) {
             velX = 3;
+        }
+    }
+
+    public void stop(int key) {
+        if (key == 87 || key == 83) {
+            velY = 0;
+        }
+        if (key == 65 || key == 68) {
+            velX = 0;
         }
     }
 

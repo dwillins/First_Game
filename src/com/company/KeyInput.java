@@ -4,8 +4,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class KeyInput extends KeyAdapter {
-    private Handler handler;
-
+    private final Handler handler;
 
     public KeyInput(Handler handler) {
         this.handler = handler;
@@ -14,13 +13,14 @@ public class KeyInput extends KeyAdapter {
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        Game.player.control(key);
+        Game.player.move(key);
         //System.out.println(key);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
+        Game.player.stop(key);
         //System.out.println(key);
     }
 }

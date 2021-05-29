@@ -12,7 +12,9 @@ public class Game extends Canvas implements Runnable {
 
     private final Handler handler;
 
-    static Player player = new Player(100, 100, ID.Player);
+    //game objects here
+    static Player player = new Player(100, 100, ID.Player1);
+    static Ball ball = new Ball(300, 300, ID.Ball);
 
     public Game() {
         handler = new Handler();
@@ -20,6 +22,7 @@ public class Game extends Canvas implements Runnable {
         new Window(WIDTH, HEIGHT, "LETS BUILD A GAME", this, handler);
 
         handler.addObject(player);
+        handler.addObject(ball);
     }
 
     public synchronized void start() {
