@@ -14,7 +14,7 @@ public class Game extends Canvas implements Runnable {
 
     //game objects here
     static Player player = new Player(100, 100, ID.Player1);
-    static Player2 player2 = new Player2(500, 100, ID.Player2);
+    static Player2 player2 = new Player2(720, 100, ID.Player2);
     static Ball ball = new Ball(300, 300, ID.Ball);
 
     public Game() {

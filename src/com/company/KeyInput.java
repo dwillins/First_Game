@@ -2,7 +2,14 @@ package com.company;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
+/*
+* w: 87
+* A: 65
+* S: 83
+* D: 68
+* up arrow: 38
+* down arrow: 40
+* */
 public class KeyInput extends KeyAdapter {
     private final Handler handler;
 
@@ -15,7 +22,7 @@ public class KeyInput extends KeyAdapter {
         int key = e.getKeyCode();
         Game.player.move(key);
         Game.player2.move(key);
-        System.out.println(key);
+        //System.out.println(key);
     }
 
     @Override
