@@ -2,18 +2,18 @@ package com.company;
 
 import java.awt.*;
 
-public class Player extends GameObject {
+public class Player2 extends GameObject{
 
-    public Player(int x, int y, ID id) {
+    public Player2(int x, int y, ID id) {
         super(x, y, id);
 //        velX = 3;
 //        velY = 3;
     }
 
     public void move(int key) {
-        if (key == 87) {
+        if (key == 38) {
             velY = -3;
-        } else if (key == 83) {
+        } else if (key == 40) {
             velY = 3;
         }
 //        if (key == 65) {
@@ -24,7 +24,7 @@ public class Player extends GameObject {
     }
 
     public void stop(int key) {
-        if (key == 87 || key == 83) {
+        if (key == 38 || key == 40) {
             velY = 0;
         }
 //        if (key == 65 || key == 68) {

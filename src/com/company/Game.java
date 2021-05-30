@@ -14,6 +14,7 @@ public class Game extends Canvas implements Runnable {
 
     //game objects here
     static Player player = new Player(100, 100, ID.Player1);
+    static Player2 player2 = new Player2(500, 100, ID.Player2);
     static Ball ball = new Ball(300, 300, ID.Ball);
 
     public Game() {
@@ -22,6 +23,7 @@ public class Game extends Canvas implements Runnable {
         new Window(WIDTH, HEIGHT, "LETS BUILD A GAME", this, handler);
 
         handler.addObject(player);
+        handler.addObject(player2);
         handler.addObject(ball);
     }
 
@@ -85,7 +87,7 @@ public class Game extends Canvas implements Runnable {
 
             if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
-                //System.out.println("FPS: " + frames);
+                System.out.println("FPS: " + frames);
                 frames = 0;
             }
         }

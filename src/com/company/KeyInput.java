@@ -14,13 +14,14 @@ public class KeyInput extends KeyAdapter {
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         Game.player.move(key);
-        //System.out.println(key);
+        Game.player2.move(key);
+        System.out.println(key);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
         Game.player.stop(key);
-        //System.out.println(key);
+        Game.player2.stop(key);
     }
 }
