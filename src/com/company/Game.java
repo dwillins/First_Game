@@ -10,9 +10,6 @@ public class Game extends Canvas implements Runnable {
     private Thread thread;
     private boolean running = false;
 
-    private final boolean multiplayer = false;
-
-    //select game mode here
     private final Handler handler;
 
     //game objects here
@@ -24,10 +21,13 @@ public class Game extends Canvas implements Runnable {
     public Game() {
         handler = new Handler();
 
-        new Window(WIDTH, HEIGHT, "LETS BUILD A GAME", this, handler);
+        new Window(WIDTH, HEIGHT, "PONG", this, handler);
 
         handler.addObject(player);
         handler.addObject(ball);
+
+        //select game mode here
+        boolean multiplayer = false;
 
         if (multiplayer) {
             handler.addObject(player2);

@@ -6,7 +6,6 @@ import java.awt.*;
 public class Window extends Canvas{
     public Window(int width, int height, String title, Game game, Handler handler) {
         JFrame frame = new JFrame(title);
-
         Dimension size = new Dimension(width, height);
 
         frame.setPreferredSize(size);
