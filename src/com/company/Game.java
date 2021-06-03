@@ -10,12 +10,16 @@ public class Game extends Canvas implements Runnable {
     private Thread thread;
     private boolean running = false;
 
+    private final boolean multiplayer = false;
+
+    //select game mode here
     private final Handler handler;
 
     //game objects here
     static Player player = new Player(100, 100, ID.Player1);
-    static Player2 player2 = new Player2(720, 100, ID.Player2);
     static Ball ball = new Ball(300, 300, ID.Ball);
+    static Player2 player2 = new Player2(720, 100, ID.Player2);
+    static AiPlayer aiPlayer = new AiPlayer(720, 100, ID.AiPlayer);
 
     public Game() {
         handler = new Handler();
@@ -23,8 +27,13 @@ public class Game extends Canvas implements Runnable {
         new Window(WIDTH, HEIGHT, "LETS BUILD A GAME", this, handler);
 
         handler.addObject(player);
-        handler.addObject(player2);
         handler.addObject(ball);
+
+        if (multiplayer) {
+            handler.addObject(player2);
+        } else {
+            handler.addObject(aiPlayer);
+        }
     }
 
     public synchronized void start() {

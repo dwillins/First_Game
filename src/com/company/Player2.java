@@ -34,12 +34,6 @@ public class Player2 extends GameObject{
 
     @Override
     public void tick() {
-        if (x > 785 || x < 0) {
-            velX *= -1;
-        }
-        if (y > 535 || y < 0) {
-            velY *= -1;
-        }
         x += velX;
         y += velY;
     }

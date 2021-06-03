@@ -28,6 +28,9 @@ public class Ball extends GameObject{
         if ((Game.player2.y + 200 > y && y > Game.player2.y) && (Game.player2.x > x && x > Game.player2.x - 20)) {
             velX *= -1;
         }
+        if ((Game.aiPlayer.y + 200 > y && y > Game.aiPlayer.y) && (Game.aiPlayer.x > x && x > Game.aiPlayer.x - 25)) {
+            velX *= -1;
+        }
         x += velX;
         y += velY;
     }
