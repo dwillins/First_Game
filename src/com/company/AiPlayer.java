@@ -3,8 +3,10 @@ package com.company;
 import java.awt.*;
 
 public class AiPlayer extends GameObject{
+    Game game;
     public AiPlayer(int x, int y, ID id) {
         super(x, y, id);
+        this.game = game;
     }
 
     @Override
@@ -13,7 +15,7 @@ public class AiPlayer extends GameObject{
             velY = 0;
         }
         x += velX;
-        y = Game.ball.y - 100;
+        y = game.ball.y - 100;
     }
 
     @Override

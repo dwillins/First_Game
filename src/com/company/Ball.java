@@ -6,6 +6,7 @@ public class Ball extends GameObject{
 
     public Ball(int x, int y, ID id) {
         super(x, y, id);
+
         // starting velocity
         velX = 3;
         velY = 3;
@@ -13,8 +14,12 @@ public class Ball extends GameObject{
 
     @Override
     public void tick() {
-        if (x > 865 || x < 0) {
-            // resets position if touching the vertical frames
+        if (x > 865) {
+            Game.player1Score();
+            x = 420;
+            y = 360;
+        } else if (x < 0) {
+            Game.player2Score();
             x = 420;
             y = 360;
         }

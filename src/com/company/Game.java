@@ -12,10 +12,13 @@ public class Game extends Canvas implements Runnable {
 
     private final Handler handler;
 
+    public static int player1Points = 0;
+    public static int player2Points = 0;
+
     //game objects here
     static Player player = new Player(100, 100, ID.Player1);
-    static Ball ball = new Ball(300, 300, ID.Ball);
     static Player2 player2 = new Player2(720, 100, ID.Player2);
+    static Ball ball = new Ball(300, 300, ID.Ball);
     static AiPlayer aiPlayer = new AiPlayer(720, 100, ID.AiPlayer);
 
     public Game() {
@@ -69,8 +72,19 @@ public class Game extends Canvas implements Runnable {
 
         handler.render(g);
 
+        g.drawString(String.valueOf(player1Points), 250, 10);
+        g.drawString(String.valueOf(player2Points), 600, 10);
+
         g.dispose();
         bs.show();
+    }
+
+    public static void player1Score() {
+        player1Points++;
+    }
+
+    public static void player2Score() {
+        player2Points++;
     }
 
     public void run() {
