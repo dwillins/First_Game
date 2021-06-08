@@ -1,6 +1,7 @@
 package com.company;
 
 import java.awt.*;
+import java.util.Random;
 
 public class Ball extends GameObject{
 
@@ -16,12 +17,10 @@ public class Ball extends GameObject{
     public void tick() {
         if (x > 865) {
             Game.player1Score();
-            x = 420;
-            y = 360;
+            reset();
         } else if (x < 0) {
             Game.player2Score();
-            x = 420;
-            y = 360;
+            reset();
         }
         if (y > 615 || y < 0) {
             // bounces off the horizontal frames
@@ -44,5 +43,16 @@ public class Ball extends GameObject{
     public void render(Graphics g) {
         g.setColor(Color.WHITE);
         g.fillRect(x, y, 20, 20);
+    }
+
+    public void reset() {
+        Random random = new Random();
+        int rand;
+        while (true){
+            rand = random.nextInt(60);
+            if(rand !=0) break;
+        }
+        x = 360 + rand;
+        y = 300 + rand;
     }
 }
