@@ -3,6 +3,7 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.util.Scanner;
 
 public class Game extends Canvas implements Runnable {
 
@@ -22,15 +23,16 @@ public class Game extends Canvas implements Runnable {
     static AiPlayer aiPlayer = new AiPlayer(720, 100, ID.AiPlayer);
 
     public Game() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("would you like to use multiplayer?");
+        boolean multiplayer = scanner.nextLine().equals("yes");
+
         handler = new Handler();
 
         new Window(WIDTH, HEIGHT, "PONG", this, handler);
 
         handler.addObject(player);
         handler.addObject(ball);
-
-        //select game mode here
-        boolean multiplayer = false;
 
         if (multiplayer) {
             handler.addObject(player2);
