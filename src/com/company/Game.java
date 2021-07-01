@@ -1,6 +1,5 @@
 package com.company;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.util.Scanner;
@@ -29,7 +28,7 @@ public class Game extends Canvas implements Runnable {
 
         handler = new Handler();
 
-        new Window(WIDTH, HEIGHT, "PONG", this, handler);
+        new Window(WIDTH, HEIGHT, "PONG", this);
 
         handler.addObject(player);
         handler.addObject(ball);
@@ -69,11 +68,13 @@ public class Game extends Canvas implements Runnable {
 
         Graphics g = bs.getDrawGraphics();
 
+        // sets window properties
         g.setColor(Color.black);
         g.fillRect(0,0, WIDTH, HEIGHT);
 
         handler.render(g);
 
+        // prints the point totals
         g.drawString(String.valueOf(player1Points), 250, 10);
         g.drawString(String.valueOf(player2Points), 600, 10);
 

@@ -11,18 +11,13 @@ import java.awt.event.KeyEvent;
 * down arrow: 40
 * */
 public class KeyInput extends KeyAdapter {
-    private final Handler handler;
 
-    public KeyInput(Handler handler) {
-        this.handler = handler;
-    }
 
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         Game.player.move(key);
         Game.player2.move(key);
-        //System.out.println(key);
     }
 
     @Override

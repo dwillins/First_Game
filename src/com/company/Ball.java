@@ -7,52 +7,56 @@ public class Ball extends GameObject{
 
     public Ball(int x, int y, ID id) {
         super(x, y, id);
-
         // starting velocity
-        velX = 3;
-        velY = 3;
+        this.setVelX(3);
+        this.setVelY(3);
     }
 
     @Override
     public void tick() {
-        if (x > 865) {
+        // increments score when the ball touches the vertical frames
+        if (this.getX() > 865) {
             Game.player1Score();
             reset();
-        } else if (x < 0) {
+        } else if (this.getX() < 0) {
             Game.player2Score();
             reset();
         }
+
+        // bounces off the horizontal frames
         if (y > 615 || y < 0) {
-            // bounces off the horizontal frames
             velY *= -1;
         }
-        if ((Game.player.y + 200 > y && y > Game.player.y) && (Game.player.x + 50 > x && x > Game.player.x)) {
+
+        // makes the ball bounce off players
+        if ((Game.player.getY() + 200 > this.getY() && this.getY() > Game.player.getY()) && (Game.player.getX() + 50 > this.getX() && this.getX() > Game.player.getX())) {
             velX *= -1;
         }
-        if ((Game.player2.y + 200 > y && y > Game.player2.y) && (Game.player2.x > x && x > Game.player2.x - 20)) {
+        if ((Game.player2.getY() + 200 > this.getY() && this.getY() > Game.player2.getY()) && (Game.player2.getX() > this.getX() && this.getX() > Game.player2.getX() - 4)) {
             velX *= -1;
         }
-        if ((Game.aiPlayer.y + 200 > y && y > Game.aiPlayer.y) && (Game.aiPlayer.x > x && x > Game.aiPlayer.x - 25)) {
+        if ((Game.aiPlayer.getY() + 200 > this.getY() && this.getY() > Game.aiPlayer.getY()) && (Game.aiPlayer.getX() > this.getX() && this.getX() > Game.aiPlayer.getX() - 20)) {
             velX *= -1;
         }
-        x += velX;
-        y += velY;
+
+        x += this.getVelX();
+        y += this.getVelY();
     }
 
     @Override
     public void render(Graphics g) {
         g.setColor(Color.WHITE);
-        g.fillRect(x, y, 20, 20);
+        g.fillRect(this.getX(), this.getY(), 20, 20);
     }
 
+    //resets the ball to a random position within a certain range
     public void reset() {
         Random random = new Random();
         int rand;
-        while (true){
+        do {
             rand = random.nextInt(60);
-            if(rand !=0) break;
-        }
-        x = 360 + rand;
-        y = 300 + rand;
+        } while (rand == 0);
+        this.setX(360 + rand);
+        this.setY(300 + rand);
     }
 }
