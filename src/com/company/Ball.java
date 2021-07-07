@@ -32,10 +32,10 @@ public class Ball extends GameObject{
         if ((Game.player.getY() + 200 > this.getY() && this.getY() > Game.player.getY()) && (Game.player.getX() + 50 > this.getX() && this.getX() > Game.player.getX())) {
             velX *= -1;
         }
-        if ((Game.player2.getY() + 200 > this.getY() && this.getY() > Game.player2.getY()) && (Game.player2.getX() > this.getX() && this.getX() > Game.player2.getX() - 4)) {
+        if ((Game.player2.getY() + 200 >= this.getY() && this.getY() >= Game.player2.getY()) && (Game.player2.getX() + 5 >= this.getX() && this.getX() >= Game.player2.getX() - 20)) {
             velX *= -1;
         }
-        if ((Game.aiPlayer.getY() + 200 > this.getY() && this.getY() > Game.aiPlayer.getY()) && (Game.aiPlayer.getX() > this.getX() && this.getX() > Game.aiPlayer.getX() - 20)) {
+        if ((Game.aiPlayer.getY() + 200 >= this.getY() && this.getY() >= Game.aiPlayer.getY()) && (Game.aiPlayer.getX() + 5 >= this.getX() && this.getX() >= Game.aiPlayer.getX() - 20)) {
             velX *= -1;
         }
 
